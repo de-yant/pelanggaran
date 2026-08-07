@@ -1,0 +1,170 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap");
+
+:root {
+  color-scheme: light dark;
+
+  --color-primary: light-dark(#0ea5e9, #38bdf8);
+  --color-primary-dark: light-dark(#0284c7, #0ea5e9);
+  --color-gold: #facc15;
+
+  --color-bg: light-dark(#f6f8fc, #020617);
+  --color-bg-soft: light-dark(#f8fafc, #0f172a);
+  --color-surface: light-dark(rgba(255, 255, 255, 0.92), rgba(15, 23, 42, 0.9));
+  --color-surface-glass: light-dark(
+    rgba(255, 255, 255, 0.76),
+    rgba(15, 23, 42, 0.76)
+  );
+  --color-surface-soft: light-dark(#f1f5f9, rgba(30, 41, 59, 0.72));
+
+  --color-text: light-dark(#0f172a, #f8fafc);
+  --color-muted: light-dark(#64748b, #94a3b8);
+  --color-border: light-dark(
+    rgba(203, 213, 225, 0.72),
+    rgba(148, 163, 184, 0.22)
+  );
+
+  --color-success: #22c55e;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+
+  --shadow-soft: light-dark(
+    0 10px 30px rgba(15, 23, 42, 0.08),
+    0 14px 36px rgba(0, 0, 0, 0.28)
+  );
+  --shadow-card: light-dark(
+    0 18px 55px rgba(15, 23, 42, 0.08),
+    0 24px 80px rgba(0, 0, 0, 0.38)
+  );
+  --ring: 0 0 0 1px color-mix(in srgb, var(--color-primary) 35%, transparent);
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 26px;
+
+  --header-height: 64px;
+  --bottom-nav-height: 86px;
+  --sidebar-width: 300px;
+
+  --font-body: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-heading: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", monospace;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  width: 100%;
+  min-height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  color: var(--color-text);
+  background:
+    radial-gradient(
+      circle at 12% 0%,
+      color-mix(in srgb, var(--color-primary) 14%, transparent),
+      transparent 28rem
+    ),
+    radial-gradient(
+      circle at 92% 12%,
+      color-mix(in srgb, var(--color-gold) 14%, transparent),
+      transparent 24rem
+    ),
+    var(--color-bg);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+#app {
+  width: 100%;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+code, pre, kbd, samp {
+  font-family: var(--font-mono);
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: var(--font-body);
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img,
+svg,
+video,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+textarea,
+select,
+button {
+  outline: none;
+}
+input:focus,
+textarea:focus,
+select:focus,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: none;
+  box-shadow: none;
+  border-color: var(--color-primary) !important;
+}
+
+button:focus,
+button:focus-visible,
+a:focus,
+a:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+::selection {
+  color: #fff;
+  background: var(--color-primary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
