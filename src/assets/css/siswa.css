@@ -24,11 +24,9 @@
   overflow: hidden;
 }
 
-@media (prefers-color-scheme: dark) {
-  .sp-head {
+[data-theme="dark"] .sp-head {
     background: linear-gradient(135deg, #0f172a, #1e293b);
   }
-}
 
 .sp-head-left {
   display: flex;
@@ -77,11 +75,9 @@
   min-width: 70px;
 }
 
-@media (prefers-color-scheme: dark) {
-  .sp-head-meta {
+[data-theme="dark"] .sp-head-meta {
     background: rgba(0, 0, 0, 0.2);
   }
-}
 
 .sp-head-meta strong {
   display: block;
@@ -188,11 +184,11 @@
 .poin-box.yellow { background: #fffbeb; border-color: #fde68a; }
 .poin-box.red { background: #fef2f2; border-color: #fecaca; }
 
-@media (prefers-color-scheme: dark) {
-  .poin-box.green { background: rgba(22, 163, 74, 0.12); border-color: rgba(22, 163, 74, 0.3); }
-  .poin-box.yellow { background: rgba(217, 119, 6, 0.12); border-color: rgba(217, 119, 6, 0.3); }
-  .poin-box.red { background: rgba(220, 38, 38, 0.12); border-color: rgba(220, 38, 38, 0.3); }
-}
+[data-theme="dark"] .poin-box.green { background: rgba(22, 163, 74, 0.12); border-color: rgba(22, 163, 74, 0.3); }
+
+[data-theme="dark"] .poin-box.yellow { background: rgba(217, 119, 6, 0.12); border-color: rgba(217, 119, 6, 0.3); }
+
+[data-theme="dark"] .poin-box.red { background: rgba(220, 38, 38, 0.12); border-color: rgba(220, 38, 38, 0.3); }
 
 /* LIST */
 .pel-list {

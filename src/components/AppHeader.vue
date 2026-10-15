@@ -2,10 +2,12 @@
 import {
   Bell,
   LogOut,
+  Moon,
   PanelLeftClose,
   PanelLeftOpen,
   RefreshCw,
   Home,
+  Sun,
   UserRound,
 } from "@/components/ui/Icons";
 import { ref, computed, onMounted, onUnmounted } from "vue";
@@ -58,6 +60,29 @@ const profileMenuOpen = ref(false);
 const notifList = ref([]);
 const hasUnread = computed(() => notifList.value.some((n) => !n.read));
 
+// ===== Tema terang/gelap (ala adminator) =====
+const theme = ref(document.documentElement.getAttribute("data-theme") || "light");
+
+function applyTheme(value) {
+  theme.value = value;
+  document.documentElement.setAttribute("data-theme", value);
+  try {
+    localStorage.setItem("pelanggaran-theme", value);
+  } catch {}
+}
+
+function toggleTheme() {
+  applyTheme(theme.value === "dark" ? "light" : "dark");
+}
+
+// ikuti sistem kalau user belum memilih manual
+let mediaQuery = null;
+function handleSystemTheme(e) {
+  if (!localStorage.getItem("pelanggaran-theme")) {
+    applyTheme(e.matches ? "dark" : "light");
+  }
+}
+
 function loadNotif() {
   notifList.value = getMockNotifikasi();
 }
@@ -88,10 +113,16 @@ function handleClickOutside(e) {
 onMounted(() => {
   document.addEventListener("click", handleClickOutside);
   loadNotif();
+
+  // setel atribut sesuai tema awal, tanpa menyimpan (biar tetap ikut sistem bila belum dipilih)
+  document.documentElement.setAttribute("data-theme", theme.value);
+  mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+  mediaQuery.addEventListener?.("change", handleSystemTheme);
 });
 
 onUnmounted(() => {
   document.removeEventListener("click", handleClickOutside);
+  mediaQuery?.removeEventListener?.("change", handleSystemTheme);
 });
 
 function handleLogout() {
@@ -142,6 +173,16 @@ function handleSync() {
     </div>
 
     <div class="app-header-actions">
+      <button
+        class="header-icon-btn theme-btn"
+        type="button"
+        :title="theme === 'dark' ? 'Mode terang' : 'Mode gelap'"
+        @click="toggleTheme"
+      >
+        <Sun v-if="theme === 'dark'" size="20" />
+        <Moon v-else size="20" />
+      </button>
+
       <button
         class="header-icon-btn sync-btn"
         :class="{ syncing }"

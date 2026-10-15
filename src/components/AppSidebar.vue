@@ -169,17 +169,15 @@ const logoutMenu = computed(() => {
     position: sticky;
     top: 0;
     height: 100vh;
+    height: 100dvh;
     width: 100%;
     min-width: 0;
     overflow: hidden;
-    padding: 16px 28px 24px;
+    padding: 20px 18px 18px;
     display: flex;
     flex-direction: column;
-    background: var(--color-surface-glass);
+    background: var(--color-surface);
     border-right: 1px solid var(--color-border);
-    box-shadow: 12px 0 40px rgba(15, 23, 42, 0.04);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
   }
 }
 
@@ -193,16 +191,14 @@ const logoutMenu = computed(() => {
 }
 
 .sidebar-brand-icon {
-  width: 46px;
-  height: 46px;
-  flex: 0 0 46px;
-  border-radius: 17px;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  border-radius: 12px;
   display: grid;
   place-items: center;
-  color: var(--color-primary);
-  background: var(--color-surface);
-  box-shadow: 0 12px 28px
-    color-mix(in srgb, var(--color-primary) 25%, transparent);
+  color: #fff;
+  background: var(--color-primary);
 }
 
 .sidebar-brand-icon.has-logo {
@@ -338,25 +334,23 @@ const logoutMenu = computed(() => {
 .side-link:hover,
 .side-link.router-link-active,
 .side-link.active {
-  color: var(--color-primary-dark);
-  background: linear-gradient(
-    90deg,
-    color-mix(in srgb, var(--color-primary) 15%, transparent),
-    color-mix(in srgb, var(--color-primary) 7%, transparent)
-  );
+  color: var(--color-primary);
+  background: var(--color-primary-soft);
 }
 
 .side-link:hover {
-  transform: translateX(2px);
+  transform: none;
 }
 
 .side-link.router-link-active::before,
 .side-link.active::before {
   content: "";
   position: absolute;
-  left: -8px;
-  width: 4px;
-  height: 24px;
+  left: -18px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 22px;
   border-radius: 999px;
   background: var(--color-primary);
 }

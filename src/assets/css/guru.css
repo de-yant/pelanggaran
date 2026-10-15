@@ -24,11 +24,9 @@
   overflow: hidden;
 }
 
-@media (prefers-color-scheme: dark) {
-  .sp-head {
+[data-theme="dark"] .sp-head {
     background: linear-gradient(135deg, #0f172a, #1e293b);
   }
-}
 
 .sp-head-left {
   display: flex;
@@ -77,11 +75,9 @@
   min-width: 70px;
 }
 
-@media (prefers-color-scheme: dark) {
-  .sp-head-meta {
+[data-theme="dark"] .sp-head-meta {
     background: rgba(0, 0, 0, 0.2);
   }
-}
 
 .sp-head-meta strong {
   display: block;
